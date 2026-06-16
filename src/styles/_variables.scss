@@ -1,0 +1,32 @@
+// Colors
+$color-bg-dark: #1c1c1e;
+$color-bg-darker: #141416;
+$color-bg-card: rgba(255, 255, 255, 0.04);
+$color-gold: #c9a96e;
+$color-gold-light: #dfc08a;
+$color-gold-dark: #a88a4e;
+$color-white: #ffffff;
+$color-white-soft: rgba(255, 255, 255, 0.85);
+$color-white-muted: rgba(255, 255, 255, 0.6);
+$color-border-gold: rgba(201, 169, 110, 0.3);
+$color-overlay: rgba(20, 20, 22, 0.7);
+
+// Fonts
+$font-script: 'Great Vibes', cursive;
+$font-serif: 'Cormorant Garamond', Georgia, serif;
+$font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// Spacing
+$section-padding-y: 5rem;
+$container-max: 1200px;
+$container-padding: 1.5rem;
+
+// Transitions
+$transition-base: 0.3s ease;
+$transition-slow: 0.6s ease;

@@ -1,0 +1,107 @@
+@use 'variables' as *;
+
+.services {
+  background-color: $color-bg-dark;
+  padding: $section-padding-y 0;
+  border-top: 1px solid $color-border-gold;
+
+  &__container {
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+
+  &__heading {
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $color-white;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 60px;
+      height: 1px;
+      background-color: $color-border-gold;
+    }
+
+    &::before {
+      right: calc(50% + 4rem);
+    }
+
+    &::after {
+      left: calc(50% + 4rem);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  }
+
+  &__card {
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 1px solid $color-border-gold;
+    border-radius: 4px;
+    background-color: $color-bg-card;
+    transition: transform $transition-base, border-color $transition-base, background-color $transition-base;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $color-gold;
+      background-color: rgba($color-gold, 0.05);
+    }
+
+    &.animate-in {
+      animation: fadeSlideUp 0.5s ease forwards;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 1.25rem;
+    color: $color-gold;
+  }
+
+  &__title {
+    font-family: $font-sans;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-white;
+    line-height: 1.5;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

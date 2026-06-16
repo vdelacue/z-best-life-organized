@@ -1,0 +1,19 @@
+{
+  "name": "z-best-life-organized",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:sass": "sass src/styles/main.scss dist/styles.css --style=compressed --no-source-map",
+    "build:ts": "tsc",
+    "build": "npm run build:sass && npm run build:ts",
+    "watch:sass": "sass src/styles/main.scss dist/styles.css --watch",
+    "watch:ts": "tsc --watch",
+    "dev": "concurrently \"npm run watch:sass\" \"npm run watch:ts\"",
+    "serve": "npx serve ."
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "sass": "^1.77.0",
+    "typescript": "^5.5.0"
+  }
+}

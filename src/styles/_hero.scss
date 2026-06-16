@@ -1,0 +1,275 @@
+@use 'variables' as *;
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: $color-bg-dark;
+  overflow: hidden;
+  padding-top: 5rem;
+
+  &__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba($color-bg-darker, 0.3) 0%,
+      rgba($color-bg-dark, 0.8) 50%,
+      rgba($color-bg-darker, 0.95) 100%
+    );
+    z-index: 1;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 3rem $container-padding;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      text-align: center;
+    }
+  }
+
+  &__image-col {
+    position: relative;
+
+    @media (max-width: $bp-lg) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__portrait {
+    width: 100%;
+    max-width: 480px;
+    border-radius: 8px;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+    filter: brightness(0.95);
+
+    @media (max-width: $bp-lg) {
+      max-width: 360px;
+    }
+
+    @media (max-width: $bp-sm) {
+      max-width: 280px;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    bottom: -1.5rem;
+    left: -1.5rem;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, $color-gold-dark, $color-gold, $color-gold-light);
+    padding: 4px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+    @media (max-width: $bp-lg) {
+      position: relative;
+      bottom: 2rem;
+      left: 0;
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  &__badge-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: $color-bg-darker;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    text-align: center;
+  }
+
+  &__badge-heart {
+    color: $color-gold;
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__badge-text {
+    font-family: $font-sans;
+    font-size: 0.55rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: $color-white;
+    line-height: 1.5;
+  }
+
+  &__badge-em {
+    font-family: $font-script;
+    font-size: 1.1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: $color-gold;
+    display: block;
+    margin: 0.1rem 0;
+  }
+
+  &__content-col {
+    @media (max-width: $bp-lg) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    align-items: baseline;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+
+    @media (max-width: $bp-lg) {
+      justify-content: center;
+    }
+  }
+
+  &__brand-z {
+    font-family: $font-script;
+    font-size: 4rem;
+    color: $color-gold;
+    line-height: 1;
+
+    @media (max-width: $bp-sm) {
+      font-size: 3rem;
+    }
+  }
+
+  &__brand-title {
+    font-family: $font-sans;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-white;
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__brand-script {
+    font-family: $font-script;
+    font-size: 2.5rem;
+    color: $color-gold;
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__brand-heart {
+    color: $color-gold;
+    font-size: 1rem;
+  }
+
+  &__tagline {
+    font-family: $font-sans;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: $color-gold-light;
+    margin-bottom: 2.5rem;
+  }
+
+  &__name {
+    font-family: $font-script;
+    font-size: 4rem;
+    font-weight: 400;
+    color: $color-gold;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 3rem;
+    }
+  }
+
+  &__name-heart {
+    font-size: 1.5rem;
+    vertical-align: super;
+  }
+
+  &__location {
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-white;
+    margin-bottom: 2rem;
+  }
+
+  &__location-pin {
+    color: $color-gold;
+    margin-right: 0.3rem;
+  }
+
+  &__roles {
+    font-family: $font-sans;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+
+  &__bio {
+    font-family: $font-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: $color-white-soft;
+    line-height: 1.7;
+    max-width: 440px;
+    margin-bottom: 2rem;
+
+    @media (max-width: $bp-lg) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__quote {
+    font-family: $font-script;
+    font-size: 1.6rem;
+    color: $color-gold-light;
+    line-height: 1.5;
+    max-width: 380px;
+    border-left: 2px solid $color-border-gold;
+    padding-left: 1.25rem;
+
+    @media (max-width: $bp-lg) {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid $color-border-gold;
+      padding-top: 1.25rem;
+      margin: 0 auto;
+    }
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.3rem;
+    }
+  }
+}

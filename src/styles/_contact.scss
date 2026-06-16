@@ -1,0 +1,133 @@
+@use 'variables' as *;
+
+.contact {
+  background-color: $color-bg-dark;
+  padding: $section-padding-y 0;
+  border-top: 1px solid $color-border-gold;
+
+  &__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    text-align: center;
+  }
+
+  &__heading {
+    font-family: $font-script;
+    font-size: 2.5rem;
+    color: $color-gold;
+    margin-bottom: 0.75rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  &__subheading {
+    font-family: $font-serif;
+    font-size: 1.05rem;
+    color: $color-white-muted;
+    margin-bottom: 2.5rem;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    text-align: left;
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    &--full {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-white-muted;
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    background-color: rgba($color-white, 0.05);
+    border: 1px solid $color-border-gold;
+    border-radius: 3px;
+    padding: 0.85rem 1rem;
+    font-family: $font-serif;
+    font-size: 1rem;
+    color: $color-white;
+    transition: border-color $transition-base, background-color $transition-base;
+
+    &::placeholder {
+      color: $color-white-muted;
+    }
+
+    &:focus {
+      border-color: $color-gold;
+      background-color: rgba($color-white, 0.08);
+    }
+
+    &--invalid {
+      border-color: #c0392b;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  &__error {
+    font-family: $font-sans;
+    font-size: 0.7rem;
+    color: #e74c3c;
+    min-height: 1.2rem;
+    margin-top: 0.3rem;
+  }
+
+  &__submit {
+    grid-column: 1 / -1;
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: $color-bg-dark;
+    background: linear-gradient(135deg, $color-gold-dark, $color-gold, $color-gold-light);
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    margin-top: 0.5rem;
+    transition: opacity $transition-base, transform $transition-base;
+
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__success {
+    margin-top: 2rem;
+  }
+
+  &__success-text {
+    font-family: $font-script;
+    font-size: 1.5rem;
+    color: $color-gold;
+  }
+}

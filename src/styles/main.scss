@@ -1,0 +1,28 @@
+@use 'variables' as *;
+@use 'reset';
+@use 'navbar';
+@use 'hero';
+@use 'services';
+@use 'benefits';
+@use 'contact';
+@use 'footer';
+
+body {
+  font-family: $font-sans;
+  background-color: $color-bg-dark;
+  color: $color-white;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+:focus-visible {
+  outline: 2px solid $color-gold;
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: rgba($color-gold, 0.3);
+  color: $color-white;
+}
