@@ -1,0 +1,55 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+pnpm-lock.yaml
+
+# TypeScript build output
+# (If your tsconfig.json outputs to a /dist or /build folder)
+dist/
+build/
+*.tsbuildinfo
+
+# Production build output
+# (Common if you use Next.js, Nuxt, or a frontend bundler like Vite)
+.next/
+out/
+dist-ssr/
+*.ts.timestamp-*
+*.js.timestamp-*
+
+# Environment variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.secret
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs and Editors
+.idea/
+.project
+.classpath
+.settings/
+*.launch
+.vscode/
+*.sublime-workspace
+*.sublime-project
