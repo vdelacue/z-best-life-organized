@@ -1,5 +1,5 @@
 {
-  "name": "z-best-life-organized",
+  "name": "z-best-life-organized-2",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,10 +8,12 @@
     "build": "npm run build:sass && npm run build:ts",
     "watch:sass": "sass src/styles/main.scss dist/styles.css --watch",
     "watch:ts": "tsc --watch",
-    "dev": "concurrently \"npm run watch:sass\" \"npm run watch:ts\"",
-    "serve": "npx serve ."
+    "dev": "concurrently \"npm run watch:sass\" \"npm run watch:ts\" \"npm run serve:live\"",
+    "serve": "npx serve .",
+    "serve:live": "browser-sync start --server --files \"dist/*.css, dist/*.js, *.html\" --no-notify --port 3000"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.3",
     "concurrently": "^8.2.2",
     "sass": "^1.77.0",
     "typescript": "^5.5.0"

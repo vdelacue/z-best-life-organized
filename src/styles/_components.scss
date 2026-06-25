@@ -1,0 +1,92 @@
+@use 'variables' as *;
+
+// Buttons
+.btn {
+  display: inline-block;
+  font-family: $font-sans;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 0.9rem 2rem;
+  border-radius: 4px;
+  transition: all $ease;
+  text-align: center;
+
+  &--primary {
+    background-color: var(--accent);
+    color: var(--text-on-accent);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &--outline {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
+
+    &:hover,
+    &:focus-visible {
+      background-color: var(--accent-light);
+    }
+  }
+
+  &--lg {
+    padding: 1.1rem 2.8rem;
+    font-size: 0.9rem;
+  }
+
+  &--full {
+    width: 100%;
+  }
+}
+
+// Theme toggle
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: color $ease, background-color $ease;
+  position: relative;
+
+  &:hover {
+    color: var(--accent);
+    background-color: var(--accent-light);
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+    &--sun {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    &--moon {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+  }
+
+  [data-theme='dark'] & {
+    .theme-toggle__icon--sun {
+      opacity: 0;
+      transform: scale(0.7);
+    }
+
+    .theme-toggle__icon--moon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

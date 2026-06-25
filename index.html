@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,213 +7,264 @@
   <meta name="description" content="Professional home organization services in Westfield, New Jersey. Closets, pantries, mudrooms, and playrooms organized beautifully.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="dist/styles.css">
 </head>
 <body>
 
-  <nav class="navbar" id="navbar">
-    <div class="navbar__container">
-      <a href="#" class="navbar__logo">
-        <span class="navbar__logo-z">Z</span>
-        <span class="navbar__logo-text">Best Life</span>
-        <span class="navbar__logo-script">organized</span>
-        <span class="navbar__logo-heart">&hearts;</span>
+  <nav class="nav" id="navbar">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="nav__logo-z">Z</span>
+        <span class="nav__logo-text">Best Life <em>organized</em></span>
       </a>
-      <button class="navbar__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="navbar__toggle-bar"></span>
-        <span class="navbar__toggle-bar"></span>
-        <span class="navbar__toggle-bar"></span>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
       </button>
-      <ul class="navbar__menu" id="navMenu">
-        <li class="navbar__item"><a href="#about" class="navbar__link">About</a></li>
-        <li class="navbar__item"><a href="#services" class="navbar__link">Services</a></li>
-        <li class="navbar__item"><a href="#benefits" class="navbar__link">Why Us</a></li>
-        <li class="navbar__item"><a href="#contact" class="navbar__link navbar__link--cta">Get Started</a></li>
-      </ul>
+
+      <div class="nav__links" id="navMenu">
+        <a href="#about" class="nav__link">About</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#process" class="nav__link">Process</a>
+        <a href="#contact" class="nav__link nav__link--cta">Book a Consult</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
   <header class="hero" id="hero">
-    <div class="hero__bg-overlay"></div>
-    <div class="hero__container">
-      <div class="hero__image-col">
-        <img
-          src="./src/assets/lana.PNG"
-          alt="Lana - Professional Home Organizer"
-          class="hero__portrait"
-          loading="eager"
-        >
-        <div class="hero__badge">
-          <div class="hero__badge-inner">
-            <span class="hero__badge-heart">&hearts;</span>
-            <p class="hero__badge-text">
-              Organizing my life made
-              <span class="hero__badge-em">everything</span>
-              easier. Let me make your life easier.
-            </p>
-          </div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Pretty &plus; Practical &plus; Purposeful</p>
+        <h1 class="hero__title">Organizing your life starts <br>at home.</h1>
+        <p class="hero__subtitle">
+          I'm <strong>Lana</strong>&mdash;a mom, organizer, and problem solver based in
+          <strong>Westfield, New Jersey</strong>. I help busy families create beautiful,
+          functional spaces that simplify everyday life.
+        </p>
+        <div class="hero__actions">
+          <a href="#services" class="btn btn--primary">Explore Services</a>
+          <a href="#about" class="btn btn--outline">Meet Lana</a>
         </div>
       </div>
-
-      <div class="hero__content-col">
-        <div class="hero__brand">
-          <span class="hero__brand-z">Z</span>
-          <span class="hero__brand-title">Best Life</span>
-          <span class="hero__brand-script">organized</span>
-          <span class="hero__brand-heart">&hearts;</span>
+      <div class="hero__visual">
+        <div class="hero__video-frame">
+          <video
+            class="hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=600&q=80"
+          >
+            <source src="https://res.cloudinary.com/delacue/video/upload/v1782350296/hero-vid_tgpjaw.mp4" type="video/mp4">
+          </video>
         </div>
-        <p class="hero__tagline">Pretty &plus; Practical &plus; Purposeful</p>
-
-        <h1 class="hero__name">Lana <span class="hero__name-heart">&hearts;</span></h1>
-        <p class="hero__location">
-          <span class="hero__location-pin">&#x1F4CD;</span>
-          Westfield, New Jersey
-        </p>
-
-        <h2 class="hero__roles">Mom. Organizer. Problem Solver.</h2>
-        <p class="hero__bio">
-          As a busy mom of two, I know firsthand how overwhelming daily life can feel.
-          Organization changed my home and made my life easier&mdash;now let me help make your life easier too.
-        </p>
-
-        <blockquote class="hero__quote">
-          Creating beautiful, functional spaces that bring calm to real family life.
-        </blockquote>
+        <a href="https://www.instagram.com/zbestlifeco" target="_blank" rel="noopener noreferrer" class="hero__accent-card">
+          <div class="hero__accent-handle">
+            <svg class="hero__accent-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+            <span class="hero__accent-username">@zbestlifeco</span>
+          </div>
+          <p class="hero__accent-text">Organizing my life made <em>everything</em> easier.</p>
+        </a>
       </div>
     </div>
   </header>
 
-  <section class="services" id="services">
-    <div class="services__container">
-      <h2 class="services__heading">Services</h2>
-      <div class="services__grid">
-        <div class="services__card" data-animate>
-          <div class="services__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M16 16h32M20 8c0 4.4-3.6 8-8 8M44 8c0 4.4 3.6 8 8 8M24 16v40M40 16v40M20 56h24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="services__title">Closets &amp; Wardrobes</h3>
-        </div>
-
-        <div class="services__card" data-animate>
-          <div class="services__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="8" y="12" width="48" height="44" rx="2" stroke="currentColor" stroke-width="2"/>
-              <line x1="8" y1="24" x2="56" y2="24" stroke="currentColor" stroke-width="2"/>
-              <line x1="8" y1="36" x2="56" y2="36" stroke="currentColor" stroke-width="2"/>
-              <line x1="8" y1="48" x2="56" y2="48" stroke="currentColor" stroke-width="2"/>
-              <line x1="32" y1="12" x2="32" y2="56" stroke="currentColor" stroke-width="2"/>
-              <circle cx="26" cy="18" r="2" fill="currentColor"/>
-              <circle cx="38" cy="18" r="2" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="services__title">Pantries &amp; Kitchens</h3>
-        </div>
-
-        <div class="services__card" data-animate>
-          <div class="services__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="12" y="8" width="40" height="48" rx="2" stroke="currentColor" stroke-width="2"/>
-              <line x1="12" y1="20" x2="52" y2="20" stroke="currentColor" stroke-width="2"/>
-              <rect x="18" y="24" width="10" height="12" rx="1" stroke="currentColor" stroke-width="2"/>
-              <rect x="36" y="24" width="10" height="12" rx="1" stroke="currentColor" stroke-width="2"/>
-              <line x1="20" y1="42" x2="28" y2="42" stroke="currentColor" stroke-width="2"/>
-              <line x1="36" y1="42" x2="44" y2="42" stroke="currentColor" stroke-width="2"/>
-              <path d="M24 56v4M40 56v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <h3 class="services__title">Mudrooms &amp; Entryways</h3>
-        </div>
-
-        <div class="services__card" data-animate>
-          <div class="services__icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 52V20l8-8h24l8 8v32H12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <line x1="12" y1="20" x2="52" y2="20" stroke="currentColor" stroke-width="2"/>
-              <path d="M28 36h8M28 44h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M20 12l12 8 12-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 class="services__title">Playrooms &amp; Family Spaces</h3>
-        </div>
-      </div>
+  <section class="marquee">
+    <div class="marquee__track" data-animate>
+      <span class="marquee__item">Functional Systems</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">Less Stress</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">More Time for What Matters</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">Real Life, Real Spaces, Real Solutions</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">Functional Systems</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">Less Stress</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">More Time for What Matters</span>
+      <span class="marquee__dot">&bull;</span>
+      <span class="marquee__item">Real Life, Real Spaces, Real Solutions</span>
+      <span class="marquee__dot">&bull;</span>
     </div>
   </section>
 
-  <section class="benefits" id="benefits">
-    <div class="benefits__container">
-      <div class="benefits__items">
-        <div class="benefits__item" data-animate>
-          <div class="benefits__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
-              <path d="M24 14v10l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="benefits__label">Functional Systems</span>
-        </div>
-
-        <div class="benefits__divider"></div>
-
-        <div class="benefits__item" data-animate>
-          <div class="benefits__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M24 8C18 8 12 14 12 22c0 10 12 18 12 18s12-8 12-18c0-8-6-14-12-14z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              <path d="M20 22l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="benefits__label">Less Stress</span>
-        </div>
-
-        <div class="benefits__divider"></div>
-
-        <div class="benefits__item" data-animate>
-          <div class="benefits__icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect x="8" y="10" width="32" height="24" rx="3" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 38h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M24 34v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M17 18l4 4-4 4M26 26h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <span class="benefits__label">More Time for What Matters</span>
-        </div>
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__photo-col">
+        <img
+          src="assets/images/lana.png"
+          alt="Lana - Professional Home Organizer"
+          class="about__photo"
+          loading="lazy"
+        >
       </div>
-
-      <div class="benefits__motto">
-        <p class="benefits__motto-text">
-          Real life.<br>
-          Real spaces.<br>
-          Real solutions.
-          <span class="benefits__motto-heart">&hearts;</span>
+      <div class="about__text-col">
+        <p class="about__label">About Lana</p>
+        <h2 class="about__heading">Mom. Organizer.<br>Problem Solver.</h2>
+        <p class="about__body">
+          As a busy mom of two, I know firsthand how overwhelming daily life can feel.
+          Organization changed my home and made my life easier&mdash;now let me help
+          make your life easier too.
+        </p>
+        <blockquote class="about__quote">
+          Creating beautiful, functional spaces that bring calm to real life.
+        </blockquote>
+        <p class="about__location">
+          &#x1F4CD; Westfield, New Jersey
         </p>
       </div>
     </div>
   </section>
 
+  <section class="services" id="services">
+    <div class="services__inner">
+      <p class="services__label">What I Do</p>
+      <h2 class="services__heading">Services</h2>
+
+      <div class="services__grid">
+        <article class="service-card" data-animate data-service="closets" role="button" tabindex="0">
+          <div class="service-card__image-wrap">
+            <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=80" alt="Organized closet" class="service-card__image" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Closets &amp; Wardrobes</h3>
+            <p class="service-card__desc">Curated systems that make getting dressed the easiest part of your day.</p>
+            <span class="service-card__cta">View Gallery &rarr;</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-animate data-service="pantries" role="button" tabindex="0">
+          <div class="service-card__image-wrap">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Organized pantry" class="service-card__image" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Pantries &amp; Kitchens</h3>
+            <p class="service-card__desc">Streamlined kitchens where every jar, spice, and snack has a home.</p>
+            <span class="service-card__cta">View Gallery &rarr;</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-animate data-service="mudrooms" role="button" tabindex="0">
+          <div class="service-card__image-wrap">
+            <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=400&q=80" alt="Organized entryway" class="service-card__image" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Mudrooms &amp; Entryways</h3>
+            <p class="service-card__desc">Drop zones that keep the chaos at the door&mdash;not scattered through the house.</p>
+            <span class="service-card__cta">View Gallery &rarr;</span>
+          </div>
+        </article>
+
+        <article class="service-card" data-animate data-service="playrooms" role="button" tabindex="0">
+          <div class="service-card__image-wrap">
+            <img src="https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&q=80" alt="Organized playroom" class="service-card__image" loading="lazy">
+          </div>
+          <div class="service-card__body">
+            <h3 class="service-card__title">Playrooms &amp; Family Spaces</h3>
+            <p class="service-card__desc">Kid-friendly systems the whole family can actually maintain.</p>
+            <span class="service-card__cta">View Gallery &rarr;</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="process__inner">
+      <p class="process__label">How It Works</p>
+      <h2 class="process__heading">Simple as 1-2-3</h2>
+
+      <div class="process__steps">
+        <div class="process__step" data-animate>
+          <span class="process__number">01</span>
+          <h3 class="process__step-title">Consult</h3>
+          <p class="process__step-desc">We chat about your space, your pain points, and your goals.</p>
+        </div>
+        <div class="process__step" data-animate>
+          <span class="process__number">02</span>
+          <h3 class="process__step-title">Transform</h3>
+          <p class="process__step-desc">I design and implement a system tailored to your family's real life.</p>
+        </div>
+        <div class="process__step" data-animate>
+          <span class="process__number">03</span>
+          <h3 class="process__step-title">Enjoy</h3>
+          <p class="process__step-desc">Walk into a space that works&mdash;and finally exhale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="cta-banner__inner">
+      <h2 class="cta-banner__heading">Ready to love your space again?</h2>
+      <p class="cta-banner__sub">Let me help make your life easier&mdash;one drawer at a time.</p>
+      <a href="#contact" class="btn btn--primary btn--lg">Book a Free Consult</a>
+    </div>
+  </section>
+
   <section class="contact" id="contact">
-    <div class="contact__container">
-      <h2 class="contact__heading">Let's Get Organized</h2>
-      <p class="contact__subheading">Ready to transform your space? Reach out and let's chat.</p>
+    <div class="contact__inner">
+      <div class="contact__info">
+        <p class="contact__label">Get In Touch</p>
+        <h2 class="contact__heading">Let's Get Organized</h2>
+        <p class="contact__body">
+          Ready to transform your space? Tell me a little about what you're working with
+          and I'll get back to you within 24 hours.
+        </p>
+        <div class="contact__details">
+          <p class="contact__detail">&#x1F4CD; Westfield, New Jersey</p>
+          <p class="contact__detail">&hearts; @zbestlifeorganized</p>
+        </div>
+      </div>
       <form class="contact__form" id="contactForm" novalidate>
-        <div class="contact__field">
-          <label for="contactName" class="contact__label">Name</label>
-          <input type="text" id="contactName" name="name" class="contact__input" required autocomplete="name">
-          <span class="contact__error" id="contactNameError"></span>
+        <div class="contact__row">
+          <div class="contact__field">
+            <label for="name" class="contact__field-label">Name</label>
+            <input type="text" id="name" name="name" class="contact__input" required autocomplete="name">
+            <span class="contact__error" id="nameError"></span>
+          </div>
+          <div class="contact__field">
+            <label for="email" class="contact__field-label">Email</label>
+            <input type="email" id="email" name="email" class="contact__input" required autocomplete="email">
+            <span class="contact__error" id="emailError"></span>
+          </div>
         </div>
         <div class="contact__field">
-          <label for="contactEmail" class="contact__label">Email</label>
-          <input type="email" id="contactEmail" name="email" class="contact__input" required autocomplete="email">
-          <span class="contact__error" id="contactEmailError"></span>
+          <label for="service" class="contact__field-label">What area needs help?</label>
+          <select id="service" name="service" class="contact__input contact__select">
+            <option value="">Select a service</option>
+            <option value="closets">Closets &amp; Wardrobes</option>
+            <option value="pantries">Pantries &amp; Kitchens</option>
+            <option value="mudrooms">Mudrooms &amp; Entryways</option>
+            <option value="playrooms">Playrooms &amp; Family Spaces</option>
+            <option value="other">Other / Not Sure</option>
+          </select>
         </div>
-        <div class="contact__field contact__field--full">
-          <label for="contactMessage" class="contact__label">Tell me about your space</label>
-          <textarea id="contactMessage" name="message" class="contact__input contact__textarea" rows="4" required></textarea>
-          <span class="contact__error" id="contactMessageError"></span>
+        <div class="contact__field">
+          <label for="message" class="contact__field-label">Tell me about your space</label>
+          <textarea id="message" name="message" class="contact__input contact__textarea" rows="4" required></textarea>
+          <span class="contact__error" id="messageError"></span>
         </div>
-        <button type="submit" class="contact__submit">Send Message</button>
+        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
       </form>
       <div class="contact__success" id="contactSuccess" hidden>
         <p class="contact__success-text">Thank you! I'll be in touch soon. &hearts;</p>
@@ -222,16 +273,53 @@
   </section>
 
   <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__brand">
-        <span class="footer__brand-z">Z</span>
-        <span class="footer__brand-title">Best Life</span>
-        <span class="footer__brand-script">organized</span>
+    <div class="footer__inner">
+      <a href="#" class="footer__logo">
+        <span class="footer__logo-z">Z</span>
+        <span class="footer__logo-text">Best Life <em>organized</em></span>
+      </a>
+      <p class="footer__tagline">Pretty &plus; Practical &plus; Purposeful</p>
+      <div class="footer__links">
+        <a href="#about" class="footer__link">About</a>
+        <a href="#services" class="footer__link">Services</a>
+        <a href="#process" class="footer__link">Process</a>
+        <a href="#contact" class="footer__link">Contact</a>
       </div>
-      <p class="footer__copy">&copy; 2026 Z Best Life Organized. All rights reserved.</p>
-      <p class="footer__location">Westfield, New Jersey</p>
+      <p class="footer__copy">&copy; 2026 Z Best Life Organized. All rights reserved. &bull; Westfield, NJ</p>
     </div>
   </footer>
+
+  <div class="modal" id="serviceModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal__backdrop" id="modalBackdrop"></div>
+    <div class="modal__container">
+      <div class="modal__header">
+        <h3 class="modal__title" id="modalTitle"></h3>
+        <button class="modal__close" id="modalClose" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__body">
+        <button class="modal__arrow modal__arrow--prev" id="carouselPrev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        <div class="modal__carousel" id="carouselTrack"></div>
+        <button class="modal__arrow modal__arrow--next" id="carouselNext" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal__dots" id="carouselDots"></div>
+      <div class="modal__caption">
+        <p class="modal__desc" id="modalDesc"></p>
+        <span class="modal__counter" id="modalCounter"></span>
+      </div>
+    </div>
+  </div>
 
   <script type="module" src="dist/main.js"></script>
 </body>

@@ -1,20 +1,7 @@
-// Colors
-$color-bg-dark: #1c1c1e;
-$color-bg-darker: #141416;
-$color-bg-card: rgba(255, 255, 255, 0.04);
-$color-gold: #c9a96e;
-$color-gold-light: #dfc08a;
-$color-gold-dark: #a88a4e;
-$color-white: #ffffff;
-$color-white-soft: rgba(255, 255, 255, 0.85);
-$color-white-muted: rgba(255, 255, 255, 0.6);
-$color-border-gold: rgba(201, 169, 110, 0.3);
-$color-overlay: rgba(20, 20, 22, 0.7);
-
 // Fonts
-$font-script: 'Great Vibes', cursive;
-$font-serif: 'Cormorant Garamond', Georgia, serif;
-$font-sans: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+$font-display: 'Playfair Display', Georgia, serif;
+$font-body: 'Lora', Georgia, serif;
+$font-sans: 'Jost', 'Helvetica Neue', Arial, sans-serif;
 
 // Breakpoints
 $bp-sm: 480px;
@@ -22,11 +9,67 @@ $bp-md: 768px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
 
-// Spacing
-$section-padding-y: 5rem;
-$container-max: 1200px;
-$container-padding: 1.5rem;
+// Layout
+$max-width: 1200px;
+$gutter: 1.5rem;
+$section-py: 6rem;
 
 // Transitions
-$transition-base: 0.3s ease;
-$transition-slow: 0.6s ease;
+$ease: 0.3s ease;
+$ease-slow: 0.6s ease;
+
+// Theme tokens as CSS custom properties
+:root,
+[data-theme='light'] {
+  --bg-primary: #faf8f5;
+  --bg-secondary: #f1ede7;
+  --bg-card: #ffffff;
+  --bg-accent: #e8dfd4;
+  --bg-cta: #3d3529;
+
+  --text-primary: #2c2520;
+  --text-secondary: #6b5e53;
+  --text-muted: #998b7d;
+  --text-on-accent: #faf8f5;
+
+  --accent: #a68b6b;
+  --accent-hover: #8c7358;
+  --accent-light: rgba(166, 139, 107, 0.12);
+
+  --border: #e2dbd2;
+  --border-light: #ede8e1;
+
+  --shadow-sm: 0 1px 3px rgba(44, 37, 32, 0.06);
+  --shadow-md: 0 4px 16px rgba(44, 37, 32, 0.08);
+  --shadow-lg: 0 8px 30px rgba(44, 37, 32, 0.1);
+
+  --nav-bg: rgba(250, 248, 245, 0.9);
+  --nav-blur: blur(12px);
+}
+
+[data-theme='dark'] {
+  --bg-primary: #1a1816;
+  --bg-secondary: #23201d;
+  --bg-card: #2a2724;
+  --bg-accent: #33302c;
+  --bg-cta: #c9a96e;
+
+  --text-primary: #f0ebe4;
+  --text-secondary: #b8ad9f;
+  --text-muted: #8a7e72;
+  --text-on-accent: #1a1816;
+
+  --accent: #c9a96e;
+  --accent-hover: #dfc08a;
+  --accent-light: rgba(201, 169, 110, 0.1);
+
+  --border: #3a3632;
+  --border-light: #2f2c28;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+  --nav-bg: rgba(26, 24, 22, 0.92);
+  --nav-blur: blur(12px);
+}

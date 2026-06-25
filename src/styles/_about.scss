@@ -1,0 +1,112 @@
+@use 'variables' as *;
+
+.about {
+  padding: $section-py 0;
+  background-color: var(--bg-primary);
+
+  &__inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $gutter;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: center;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  &__photo-col {
+    @media (max-width: $bp-lg) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__photo {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+
+    @media (max-width: $bp-lg) {
+      max-width: 340px;
+    }
+  }
+
+  &__text-col {
+    @media (max-width: $bp-lg) {
+      text-align: center;
+    }
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  &__body {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 480px;
+
+    @media (max-width: $bp-lg) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__quote {
+    font-family: $font-display;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--accent);
+    line-height: 1.6;
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--accent);
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+
+    @media (max-width: $bp-lg) {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__location {
+    font-family: $font-sans;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+}
