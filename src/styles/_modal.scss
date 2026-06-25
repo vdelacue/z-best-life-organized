@@ -1,0 +1,241 @@
+@use 'variables' as *;
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+
+    .modal__container {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+  }
+
+  &__container {
+    position: relative;
+    z-index: 1;
+    width: 90vw;
+    max-width: 900px;
+    max-height: 90vh;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: translateY(24px) scale(0.97);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__close {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: background-color $ease, color $ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background-color: var(--accent-light);
+      color: var(--accent);
+    }
+  }
+
+  &__body {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 0;
+  }
+
+  &__carousel {
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+  }
+
+  &__slide {
+    min-width: 100%;
+    transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    box-shadow: var(--shadow-md);
+    transition: background-color $ease, color $ease, transform 0.2s ease;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--text-on-accent);
+      border-color: var(--accent);
+    }
+
+    &:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    &--prev {
+      left: 1rem;
+    }
+
+    &--next {
+      right: 1rem;
+    }
+
+    @media (max-width: $bp-sm) {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      &--prev {
+        left: 0.5rem;
+      }
+
+      &--next {
+        right: 0.5rem;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0 0.5rem;
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--border);
+    cursor: pointer;
+    transition: background-color $ease, transform $ease;
+    padding: 0;
+
+    &--active {
+      background-color: var(--accent);
+      transform: scale(1.3);
+    }
+
+    &:hover:not(.modal__dot--active) {
+      background-color: var(--text-muted);
+    }
+  }
+
+  &__caption {
+    padding: 0.75rem 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-top: 1px solid var(--border-light);
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  &__counter {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+.service-card {
+  cursor: pointer;
+
+  &__cta {
+    display: inline-block;
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 0.75rem;
+    letter-spacing: 0.04em;
+    transition: color $ease;
+
+    .service-card:hover & {
+      color: var(--accent-hover);
+    }
+  }
+}

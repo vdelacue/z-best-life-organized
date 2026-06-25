@@ -1,16 +1,21 @@
-@use 'variables' as *;
+@use 'variables';
 @use 'reset';
-@use 'navbar';
+@use 'components';
+@use 'nav';
 @use 'hero';
+@use 'marquee';
+@use 'about';
 @use 'services';
-@use 'benefits';
+@use 'process';
+@use 'cta';
+@use 'modal';
 @use 'contact';
 @use 'footer';
 
 body {
-  font-family: $font-sans;
-  background-color: $color-bg-dark;
-  color: $color-white;
+  font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 [hidden] {
@@ -18,11 +23,11 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid $color-gold;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
 ::selection {
-  background-color: rgba($color-gold, 0.3);
-  color: $color-white;
+  background-color: var(--accent-light);
+  color: var(--text-primary);
 }

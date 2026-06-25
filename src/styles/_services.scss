@@ -1,50 +1,43 @@
 @use 'variables' as *;
 
 .services {
-  background-color: $color-bg-dark;
-  padding: $section-padding-y 0;
-  border-top: 1px solid $color-border-gold;
+  padding: $section-py 0;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.4s ease;
 
-  &__container {
-    max-width: $container-max;
+  &__inner {
+    max-width: $max-width;
     margin: 0 auto;
-    padding: 0 $container-padding;
+    padding: 0 $gutter;
+    text-align: center;
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
   }
 
   &__heading {
-    font-family: $font-sans;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: $color-white;
-    text-align: center;
+    font-family: $font-display;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 3rem;
-    position: relative;
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 60px;
-      height: 1px;
-      background-color: $color-border-gold;
-    }
-
-    &::before {
-      right: calc(50% + 4rem);
-    }
-
-    &::after {
-      left: calc(50% + 4rem);
+    @media (max-width: $bp-sm) {
+      font-size: 2rem;
     }
   }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
 
     @media (max-width: $bp-lg) {
       grid-template-columns: repeat(2, 1fr);
@@ -52,52 +45,70 @@
 
     @media (max-width: $bp-sm) {
       grid-template-columns: 1fr;
-      max-width: 300px;
+      max-width: 360px;
       margin: 0 auto;
     }
   }
+}
 
-  &__card {
-    text-align: center;
-    padding: 2rem 1rem;
-    border: 1px solid $color-border-gold;
-    border-radius: 4px;
-    background-color: $color-bg-card;
-    transition: transform $transition-base, border-color $transition-base, background-color $transition-base;
+.service-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  transition: transform $ease, box-shadow $ease, border-color $ease, background-color 0.4s ease;
 
-    &:hover {
-      transform: translateY(-4px);
-      border-color: $color-gold;
-      background-color: rgba($color-gold, 0.05);
-    }
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+  }
 
-    &.animate-in {
-      animation: fadeSlideUp 0.5s ease forwards;
+  &.animate-in {
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  &__image-wrap {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $ease-slow;
+
+    .service-card:hover & {
+      transform: scale(1.04);
     }
   }
 
-  &__icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto 1.25rem;
-    color: $color-gold;
+  &__body {
+    padding: 1.25rem;
   }
 
   &__title {
-    font-family: $font-sans;
-    font-size: 0.7rem;
+    font-family: $font-display;
+    font-size: 1.15rem;
     font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: $color-white;
-    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  &__desc {
+    font-family: $font-body;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
 }
 
-@keyframes fadeSlideUp {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
 
   to {

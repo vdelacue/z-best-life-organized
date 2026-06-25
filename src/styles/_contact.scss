@@ -1,40 +1,89 @@
 @use 'variables' as *;
 
 .contact {
-  background-color: $color-bg-dark;
-  padding: $section-padding-y 0;
-  border-top: 1px solid $color-border-gold;
+  padding: $section-py 0;
+  background-color: var(--bg-secondary);
+  transition: background-color 0.4s ease;
 
-  &__container {
-    max-width: 600px;
+  &__inner {
+    max-width: $max-width;
     margin: 0 auto;
-    padding: 0 $container-padding;
-    text-align: center;
-  }
+    padding: 0 $gutter;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    align-items: start;
 
-  &__heading {
-    font-family: $font-script;
-    font-size: 2.5rem;
-    color: $color-gold;
-    margin-bottom: 0.75rem;
-
-    @media (max-width: $bp-sm) {
-      font-size: 2rem;
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 600px;
     }
   }
 
-  &__subheading {
-    font-family: $font-serif;
-    font-size: 1.05rem;
-    color: $color-white-muted;
-    margin-bottom: 2.5rem;
+  &__info {
+    @media (max-width: $bp-lg) {
+      text-align: center;
+    }
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__body {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    @media (max-width: $bp-lg) {
+      align-items: center;
+    }
+  }
+
+  &__detail {
+    font-family: $font-sans;
+    font-size: 0.82rem;
+    color: var(--text-muted);
   }
 
   &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
-    text-align: left;
 
     @media (max-width: $bp-sm) {
       grid-template-columns: 1fr;
@@ -44,39 +93,34 @@
   &__field {
     display: flex;
     flex-direction: column;
-
-    &--full {
-      grid-column: 1 / -1;
-    }
   }
 
-  &__label {
+  &__field-label {
     font-family: $font-sans;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $color-white-muted;
+    color: var(--text-muted);
     margin-bottom: 0.5rem;
   }
 
   &__input {
-    background-color: rgba($color-white, 0.05);
-    border: 1px solid $color-border-gold;
-    border-radius: 3px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
     padding: 0.85rem 1rem;
-    font-family: $font-serif;
-    font-size: 1rem;
-    color: $color-white;
-    transition: border-color $transition-base, background-color $transition-base;
+    font-family: $font-body;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    transition: border-color $ease, background-color 0.4s ease;
 
     &::placeholder {
-      color: $color-white-muted;
+      color: var(--text-muted);
     }
 
     &:focus {
-      border-color: $color-gold;
-      background-color: rgba($color-white, 0.08);
+      border-color: var(--accent);
     }
 
     &--invalid {
@@ -84,50 +128,37 @@
     }
   }
 
+  &__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b5e53'%3E%3Cpath d='m2 4 4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
   &__textarea {
     resize: vertical;
-    min-height: 100px;
+    min-height: 110px;
   }
 
   &__error {
     font-family: $font-sans;
     font-size: 0.7rem;
-    color: #e74c3c;
-    min-height: 1.2rem;
-    margin-top: 0.3rem;
-  }
-
-  &__submit {
-    grid-column: 1 / -1;
-    font-family: $font-sans;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: $color-bg-dark;
-    background: linear-gradient(135deg, $color-gold-dark, $color-gold, $color-gold-light);
-    padding: 1rem 2rem;
-    border-radius: 3px;
-    margin-top: 0.5rem;
-    transition: opacity $transition-base, transform $transition-base;
-
-    &:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
+    color: #c0392b;
+    min-height: 1.1rem;
+    margin-top: 0.25rem;
   }
 
   &__success {
-    margin-top: 2rem;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2rem;
   }
 
   &__success-text {
-    font-family: $font-script;
-    font-size: 1.5rem;
-    color: $color-gold;
+    font-family: $font-display;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--accent);
   }
 }

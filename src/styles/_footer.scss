@@ -1,58 +1,81 @@
 @use 'variables' as *;
 
 .footer {
-  background-color: $color-bg-darker;
-  padding: 2.5rem 0;
-  border-top: 1px solid $color-border-gold;
+  padding: 3rem 0;
+  background-color: var(--bg-primary);
+  border-top: 1px solid var(--border);
+  transition: background-color 0.4s ease;
 
-  &__container {
-    max-width: $container-max;
+  &__inner {
+    max-width: $max-width;
     margin: 0 auto;
-    padding: 0 $container-padding;
+    padding: 0 $gutter;
     text-align: center;
   }
 
-  &__brand {
-    display: flex;
+  &__logo {
+    display: inline-flex;
     align-items: baseline;
-    justify-content: center;
-    gap: 0.25rem;
-    margin-bottom: 0.75rem;
+    gap: 0.3rem;
+    margin-bottom: 0.5rem;
   }
 
-  &__brand-z {
-    font-family: $font-script;
+  &__logo-z {
+    font-family: $font-display;
     font-size: 1.5rem;
-    color: $color-gold;
+    font-weight: 700;
+    color: var(--accent);
   }
 
-  &__brand-title {
+  &__logo-text {
     font-family: $font-sans;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: $color-white;
+    color: var(--text-primary);
+
+    em {
+      font-style: italic;
+      font-family: $font-display;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
   }
 
-  &__brand-script {
-    font-family: $font-script;
-    font-size: 1rem;
-    color: $color-gold;
+  &__tagline {
+    font-family: $font-sans;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    font-family: $font-sans;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    transition: color $ease;
+
+    &:hover {
+      color: var(--accent);
+    }
   }
 
   &__copy {
     font-family: $font-sans;
     font-size: 0.7rem;
-    color: $color-white-muted;
-    margin-bottom: 0.3rem;
-  }
-
-  &__location {
-    font-family: $font-sans;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: $color-white-muted;
+    color: var(--text-muted);
   }
 }

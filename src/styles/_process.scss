@@ -1,0 +1,89 @@
+@use 'variables' as *;
+
+.process {
+  padding: $section-py 0;
+  background-color: var(--bg-primary);
+
+  &__inner {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $gutter;
+    text-align: center;
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3.5rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  &__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+  }
+
+  &__step {
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--bg-card);
+    transition: border-color $ease, background-color 0.4s ease;
+
+    &:hover {
+      border-color: var(--accent);
+    }
+
+    &.animate-in {
+      animation: fadeUp 0.5s ease forwards;
+    }
+  }
+
+  &__number {
+    font-family: $font-display;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  &__step-title {
+    font-family: $font-display;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.6rem;
+  }
+
+  &__step-desc {
+    font-family: $font-body;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+}
