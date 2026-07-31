@@ -313,6 +313,37 @@ function initServiceModal(): void {
   });
 }
 
+function initHeroVideo(): void {
+  const video = document.querySelector<HTMLVideoElement>('.hero__video video');
+  if (!video) return;
+  video.muted = true;
+  video.defaultMuted = true;
+
+  const play = (): void => {
+    const attempt = video.play();
+    if (attempt !== undefined) {
+      attempt.catch(() => {
+        const resume = (): void => {
+          video.play().catch(() => {});
+          ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach((evt) =>
+            window.removeEventListener(evt, resume)
+          );
+        };
+        ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach((evt) => 
+          window.addEventListener(evt, resume, { once: true, passive: true })
+        );
+      });
+    }
+  }
+
+  if (video.readyState >= 2) {
+    play();
+  } else {
+    video.addEventListener('loadeddata', play, { once: true });
+    video.addEventListener('canplay', play, {once: true});
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initNavbar();
@@ -320,4 +351,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initContactForm();
   initServiceModal();
+  initHeroVideo();
 });
