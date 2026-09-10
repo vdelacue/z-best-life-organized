@@ -142,46 +142,46 @@
 
       <div class="services__grid">
         <article class="service-card" data-animate data-service="closets" role="button" tabindex="0">
-          <div class="service-card__image-wrap">
+          <!-- <div class="service-card__image-wrap">
             <img src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=400&q=80" alt="Organized closet" class="service-card__image" loading="lazy">
-          </div>
+          </div> -->
           <div class="service-card__body">
             <h3 class="service-card__title">Closets &amp; Wardrobes</h3>
             <p class="service-card__desc">Curated systems that make getting dressed the easiest part of your day.</p>
-            <span class="service-card__cta">View Gallery &rarr;</span>
+            <!-- <span class="service-card__cta">View Gallery &rarr;</span> -->
           </div>
         </article>
 
         <article class="service-card" data-animate data-service="pantries" role="button" tabindex="0">
-          <div class="service-card__image-wrap">
+          <!-- <div class="service-card__image-wrap">
             <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&q=80" alt="Organized pantry" class="service-card__image" loading="lazy">
-          </div>
+          </div> -->
           <div class="service-card__body">
             <h3 class="service-card__title">Pantries &amp; Kitchens</h3>
             <p class="service-card__desc">Streamlined kitchens where every jar, spice, and snack has a home.</p>
-            <span class="service-card__cta">View Gallery &rarr;</span>
+            <!-- <span class="service-card__cta">View Gallery &rarr;</span> -->
           </div>
         </article>
 
         <article class="service-card" data-animate data-service="mudrooms" role="button" tabindex="0">
-          <div class="service-card__image-wrap">
+          <!-- <div class="service-card__image-wrap">
             <img src="https://images.unsplash.com/photo-1585128903994-9788298932a4?w=400&q=80" alt="Organized entryway" class="service-card__image" loading="lazy">
-          </div>
+          </div> -->
           <div class="service-card__body">
             <h3 class="service-card__title">Mudrooms &amp; Entryways</h3>
             <p class="service-card__desc">Drop zones that keep the chaos at the door&mdash;not scattered through the house.</p>
-            <span class="service-card__cta">View Gallery &rarr;</span>
+            <!-- <span class="service-card__cta">View Gallery &rarr;</span> -->
           </div>
         </article>
 
         <article class="service-card" data-animate data-service="playrooms" role="button" tabindex="0">
-          <div class="service-card__image-wrap">
+          <!-- <div class="service-card__image-wrap">
             <img src="https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&q=80" alt="Organized playroom" class="service-card__image" loading="lazy">
-          </div>
+          </div> -->
           <div class="service-card__body">
             <h3 class="service-card__title">Playrooms &amp; Family Spaces</h3>
             <p class="service-card__desc">Kid-friendly systems the whole family can actually maintain.</p>
-            <span class="service-card__cta">View Gallery &rarr;</span>
+            <!-- <span class="service-card__cta">View Gallery &rarr;</span> -->
           </div>
         </article>
       </div>
@@ -235,7 +235,11 @@
           <p class="contact__detail">&hearts; @zbestlifeorganized</p>
         </div>
       </div>
-      <form class="contact__form" id="contactForm" novalidate>
+      <form action="https://api.web3forms.com/submit" method="POST" class="contact__form" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="94dc3158-0536-4775-a6f2-d68f31592e82">
+        <input type="hidden" name="subject" value="New Submission from Z Best Life Organized">
+        <input type="hidden" name="from_name" value="Z Best Life Organized">
+        <input type="checkbox" name="botcheck" class="contact__botcheck" tabindex="-1" autocomplete="off" style="display:none;">
         <div class="contact__row">
           <div class="contact__field">
             <label for="name" class="contact__field-label">Name</label>
@@ -265,6 +269,7 @@
           <span class="contact__error" id="messageError"></span>
         </div>
         <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+        <p class="contact_form-error" id="contactFormError" role="alert"></p>
       </form>
       <div class="contact__success" id="contactSuccess" hidden>
         <p class="contact__success-text">Thank you! I'll be in touch soon. &hearts;</p>

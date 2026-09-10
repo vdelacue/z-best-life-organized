@@ -74,24 +74,50 @@ function initSmoothScroll() {
         });
     });
 }
+const FORM_ENDPOINT = 'https://api.web3forms.com/submit';
 function initContactForm() {
     const form = document.getElementById('contactForm');
     const success = document.getElementById('contactSuccess');
-    if (!form || !success)
+    const submitBtn = document.getElementById('contactSubmit');
+    const formError = document.getElementById('contactFormError');
+    if (!form || !success || !submitBtn || !formError)
         return;
-    form.addEventListener('submit', (e) => {
+    const defaultLabel = submitBtn.textContent ?? 'Send Message';
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const messageInput = document.getElementById('message');
-        let valid = true;
-        valid = validateRequired(nameInput, 'nameError', 'Please enter your name.') && valid;
-        valid = validateEmail(emailInput) && valid;
-        valid = validateRequired(messageInput, 'messageError', 'Please tell me about your space.') && valid;
-        if (!valid)
+        //Run every validator so all three fields show their error at once.
+        const nameValid = validateRequired(nameInput, 'nameError', 'Please enter your name.');
+        const emailValid = validateEmail(emailInput);
+        const messageValid = validateRequired(messageInput, 'messageError', 'Please tell me about your space.');
+        if (!nameValid || !emailValid || !messageValid)
             return;
-        form.hidden = true;
-        success.hidden = false;
+        formError.textContent = '';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending…';
+        try {
+            const response = await fetch(FORM_ENDPOINT, {
+                method: 'POST',
+                body: new FormData(form),
+            });
+            if (!response.ok) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+            const result = (await response.json());
+            if (!result.success) {
+                throw new Error(result.message ?? 'The form service rejected the submission.');
+            }
+            form.hidden = true;
+            success.hidden = false;
+        }
+        catch {
+            formError.textContent =
+                "Sorry, that didn't go through. Please try again, or reach out on Instagram.";
+            submitBtn.disabled = false;
+            submitBtn.textContent = defaultLabel;
+        }
     });
 }
 function validateRequired(input, errorId, message) {
