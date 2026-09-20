@@ -58,6 +58,16 @@
     margin-bottom: 2rem;
   }
 
+  &__link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--accent-hover);
+    }
+  }
+
   &__details {
     display: flex;
     flex-direction: column;
@@ -147,6 +157,18 @@
     color: #c0392b;
     min-height: 1.1rem;
     margin-top: 0.25rem;
+  }
+
+  &__botcheck {
+    display: none;
+  }
+
+  &__form-error {
+    font-family: $font-sans;
+    font-size: 0.8rem;
+    color: #c0392b;
+    text-align: center;
+    min-height: 1.2rem;
   }
 
   &__success {

@@ -55,6 +55,10 @@ function initScrollAnimations(): void {
           const el = entry.target as HTMLElement;
           el.style.animationDelay = `${i * 0.1}s`;
           el.classList.add('animate-in');
+          // Drop the inline opacity:0 set below. Elements that have a matching
+          // .animate-in animation fade in from their own keyframes; elements that
+          // don't would otherwise stay invisible forever while still taking up space.
+          el.style.opacity = '';
           observer.unobserve(el);
         }
       });

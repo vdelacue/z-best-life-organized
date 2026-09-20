@@ -1,0 +1,125 @@
+@use 'variables' as *;
+
+.book {
+  // Lighter on top than $section-py: the cta-banner directly above already ends with
+  // 5rem of its own padding, so a full section pad here reads as a dead gap.
+  padding: 4rem 0 $section-py;
+  background-color: var(--bg-primary);
+  transition: background-color 0.4s ease;
+
+  @media (max-width: $bp-md) {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  &__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 $gutter;
+
+    // Full-bleed the panel on phones. Every pixel of gutter is a pixel the
+    // scheduler's own layout does not get, and it wraps badly when starved.
+    @media (max-width: $bp-sm) {
+      padding: 0;
+    }
+  }
+
+  &__intro {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    // Needs its own .animate-in rule: initScrollAnimations() adds the class to every
+    // [data-animate] element, but only an animation's `forwards` fill restores opacity.
+    &.animate-in {
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    // Text keeps its gutters even when the panel goes edge to edge.
+    @media (max-width: $bp-sm) {
+      padding: 0 $gutter;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__label {
+    font-family: $font-sans;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  &__heading {
+    font-family: $font-display;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__body {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  &__link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+
+    &:hover {
+      color: var(--accent-hover);
+    }
+  }
+
+  // The scheduler is a cross-origin iframe, so no CSS here reaches inside it and it
+  // cannot follow the theme toggle. The panel is deliberately pinned to light values in
+  // BOTH themes so it reads as an intentional inset surface rather than a white box
+  // floating on the dark background.
+  &__panel {
+    background-color: #ffffff;
+    border: 1px solid #e2dbd2;
+    border-radius: 14px;
+    padding: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+
+    // Edge to edge on phones: drop the padding, the radius, and the side borders
+    // so the scheduler gets the full viewport width.
+    @media (max-width: $bp-sm) {
+      padding: 0;
+      border-radius: 0;
+      border-left: 0;
+      border-right: 0;
+      box-shadow: none;
+    }
+  }
+
+  // Height fallback. When embed.js receives Acuity's `sizing:<px>` postMessage it
+  // writes `height:<N>px !important` inline, which beats these rules and is what we
+  // want. These values only apply when that message never arrives — without them the
+  // iframe sits at its 800px HTML attribute and scrolls internally, which on a phone
+  // traps the user's thumb in a nested scroll region.
+  // Must be `height`, not `min-height`: min-height would override the inline resize
+  // and leave dead space below short content.
+  &__frame {
+    display: block;
+    width: 100%;
+    border: 0;
+    height: 900px;
+
+    @media (max-width: $bp-sm) {
+      height: 1150px;
+    }
+  }
+}
