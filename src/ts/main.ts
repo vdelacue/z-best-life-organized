@@ -238,119 +238,119 @@ const SERVICE_DATA: Record<string, ServiceData> = {
 };
 
 function initServiceModal(): void {
-  const modal = document.getElementById('serviceModal');
-  const backdrop = document.getElementById('modalBackdrop');
-  const closeBtn = document.getElementById('modalClose');
-  const titleEl = document.getElementById('modalTitle');
-  const descEl = document.getElementById('modalDesc');
-  const counterEl = document.getElementById('modalCounter');
-  const track = document.getElementById('carouselTrack');
-  const dotsContainer = document.getElementById('carouselDots');
-  const prevBtn = document.getElementById('carouselPrev');
-  const nextBtn = document.getElementById('carouselNext');
+  // const modal = document.getElementById('serviceModal');
+  // const backdrop = document.getElementById('modalBackdrop');
+  // const closeBtn = document.getElementById('modalClose');
+  // const titleEl = document.getElementById('modalTitle');
+  // const descEl = document.getElementById('modalDesc');
+  // const counterEl = document.getElementById('modalCounter');
+  // const track = document.getElementById('carouselTrack');
+  // const dotsContainer = document.getElementById('carouselDots');
+  // const prevBtn = document.getElementById('carouselPrev');
+  // const nextBtn = document.getElementById('carouselNext');
 
-  if (!modal || !track || !dotsContainer || !titleEl || !descEl || !counterEl) return;
+  // if (!modal || !track || !dotsContainer || !titleEl || !descEl || !counterEl) return;
 
-  let currentIndex = 0;
-  let currentSlides: ServiceSlide[] = [];
+  // let currentIndex = 0;
+  // let currentSlides: ServiceSlide[] = [];
 
-  function renderSlides(data: ServiceData): void {
-    currentSlides = data.slides;
-    currentIndex = 0;
+  // function renderSlides(data: ServiceData): void {
+  //   currentSlides = data.slides;
+  //   currentIndex = 0;
 
-    titleEl!.textContent = data.title;
+  //   titleEl!.textContent = data.title;
 
-    track!.innerHTML = data.slides
-      .map((slide) => `<div class="modal__slide"><img src="${slide.image}" alt="${slide.caption}" loading="lazy"></div>`)
-      .join('');
+  //   track!.innerHTML = data.slides
+  //     .map((slide) => `<div class="modal__slide"><img src="${slide.image}" alt="${slide.caption}" loading="lazy"></div>`)
+  //     .join('');
 
-    dotsContainer!.innerHTML = data.slides
-      .map((_, i) => `<button class="modal__dot${i === 0 ? ' modal__dot--active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`)
-      .join('');
+  //   dotsContainer!.innerHTML = data.slides
+  //     .map((_, i) => `<button class="modal__dot${i === 0 ? ' modal__dot--active' : ''}" data-index="${i}" aria-label="Go to slide ${i + 1}"></button>`)
+  //     .join('');
 
-    updateCarousel();
+  //   updateCarousel();
   }
 
   function updateCarousel(): void {
-    const slides = track!.querySelectorAll<HTMLElement>('.modal__slide');
-    slides.forEach((slide) => {
-      slide.style.transform = `translateX(-${currentIndex * 100}%)`;
-    });
+    // const slides = track!.querySelectorAll<HTMLElement>('.modal__slide');
+    // slides.forEach((slide) => {
+    //   slide.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // });
 
-    const dots = dotsContainer!.querySelectorAll('.modal__dot');
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('modal__dot--active', i === currentIndex);
-    });
+    // const dots = dotsContainer!.querySelectorAll('.modal__dot');
+    // dots.forEach((dot, i) => {
+    //   dot.classList.toggle('modal__dot--active', i === currentIndex);
+    // });
 
-    descEl!.textContent = currentSlides[currentIndex]?.caption ?? '';
-    counterEl!.textContent = `${currentIndex + 1} / ${currentSlides.length}`;
+    // descEl!.textContent = currentSlides[currentIndex]?.caption ?? '';
+    // counterEl!.textContent = `${currentIndex + 1} / ${currentSlides.length}`;
   }
 
   function openModal(serviceKey: string): void {
-    const data = SERVICE_DATA[serviceKey];
-    if (!data) return;
+  //   const data = SERVICE_DATA[serviceKey];
+  //   if (!data) return;
 
-    renderSlides(data);
-    modal!.classList.add('modal--open');
-    modal!.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
+  //   renderSlides(data);
+  //   modal!.classList.add('modal--open');
+  //   modal!.setAttribute('aria-hidden', 'false');
+  //   document.body.style.overflow = 'hidden';
+  // }
 
-  function closeModal(): void {
-    modal!.classList.remove('modal--open');
-    modal!.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
+  // function closeModal(): void {
+  //   modal!.classList.remove('modal--open');
+  //   modal!.setAttribute('aria-hidden', 'true');
+  //   document.body.style.overflow = '';
+  // }
 
-  document.querySelectorAll<HTMLElement>('[data-service]').forEach((card) => {
-    card.addEventListener('click', () => {
-      const key = card.getAttribute('data-service');
-      if (key) openModal(key);
-    });
+  // document.querySelectorAll<HTMLElement>('[data-service]').forEach((card) => {
+  //   card.addEventListener('click', () => {
+  //     const key = card.getAttribute('data-service');
+  //     if (key) openModal(key);
+  //   });
 
-    card.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const key = card.getAttribute('data-service');
-        if (key) openModal(key);
-      }
-    });
-  });
+  //   card.addEventListener('keydown', (e: KeyboardEvent) => {
+  //     if (e.key === 'Enter' || e.key === ' ') {
+  //       e.preventDefault();
+  //       const key = card.getAttribute('data-service');
+  //       if (key) openModal(key);
+  //     }
+  //   });
+  // });
 
-  closeBtn?.addEventListener('click', closeModal);
-  backdrop?.addEventListener('click', closeModal);
+  // closeBtn?.addEventListener('click', closeModal);
+  // backdrop?.addEventListener('click', closeModal);
 
-  prevBtn?.addEventListener('click', () => {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : currentSlides.length - 1;
-    updateCarousel();
-  });
+  // prevBtn?.addEventListener('click', () => {
+  //   currentIndex = currentIndex > 0 ? currentIndex - 1 : currentSlides.length - 1;
+  //   updateCarousel();
+  // });
 
-  nextBtn?.addEventListener('click', () => {
-    currentIndex = currentIndex < currentSlides.length - 1 ? currentIndex + 1 : 0;
-    updateCarousel();
-  });
+  // nextBtn?.addEventListener('click', () => {
+  //   currentIndex = currentIndex < currentSlides.length - 1 ? currentIndex + 1 : 0;
+  //   updateCarousel();
+  // });
 
-  dotsContainer.addEventListener('click', (e: Event) => {
-    const target = e.target as HTMLElement;
-    const index = target.getAttribute('data-index');
-    if (index !== null) {
-      currentIndex = parseInt(index, 10);
-      updateCarousel();
-    }
-  });
+  // dotsContainer.addEventListener('click', (e: Event) => {
+  //   const target = e.target as HTMLElement;
+  //   const index = target.getAttribute('data-index');
+  //   if (index !== null) {
+  //     currentIndex = parseInt(index, 10);
+  //     updateCarousel();
+  //   }
+  // });
 
-  document.addEventListener('keydown', (e: KeyboardEvent) => {
-    if (modal!.getAttribute('aria-hidden') === 'true') return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') {
-      currentIndex = currentIndex > 0 ? currentIndex - 1 : currentSlides.length - 1;
-      updateCarousel();
-    }
-    if (e.key === 'ArrowRight') {
-      currentIndex = currentIndex < currentSlides.length - 1 ? currentIndex + 1 : 0;
-      updateCarousel();
-    }
-  });
+  // document.addEventListener('keydown', (e: KeyboardEvent) => {
+  //   if (modal!.getAttribute('aria-hidden') === 'true') return;
+  //   if (e.key === 'Escape') closeModal();
+  //   if (e.key === 'ArrowLeft') {
+  //     currentIndex = currentIndex > 0 ? currentIndex - 1 : currentSlides.length - 1;
+  //     updateCarousel();
+  //   }
+  //   if (e.key === 'ArrowRight') {
+  //     currentIndex = currentIndex < currentSlides.length - 1 ? currentIndex + 1 : 0;
+  //     updateCarousel();
+  //   }
+  // });
 }
 
 function initHeroVideo(): void {
