@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "nodenext",
+    "module": "ES2020",
     "strict": true,
     "esModuleInterop": true,
     "outDir": "./dist",
     "rootDir": "./src/ts",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "sourceMap": false,
     "declaration": false
   },

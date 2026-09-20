@@ -28,7 +28,7 @@
         <a href="#about" class="nav__link">About</a>
         <a href="#services" class="nav__link">Services</a>
         <a href="#process" class="nav__link">Process</a>
-        <a href="#contact" class="nav__link nav__link--cta">Book a Consult</a>
+        <a href="#book" class="nav__link nav__link--cta">Book a Consult</a>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/>
@@ -217,7 +217,35 @@
     <div class="cta-banner__inner">
       <h2 class="cta-banner__heading">Ready to love your space again?</h2>
       <p class="cta-banner__sub">Let me help make your life easier&mdash;one drawer at a time.</p>
-      <a href="#contact" class="btn btn--primary btn--lg">Book a Free Consult</a>
+      <a href="#book" class="btn btn--primary btn--lg">Book a Free Consult</a>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="book__inner">
+      <div class="book__intro" data-animate>
+        <p class="book__label">Book Online</p>
+        <h2 class="book__heading">Pick a Time That Works</h2>
+        <p class="book__body">
+          Choose a free consultation slot below and you'll get a confirmation by email.
+          Not sure what you need yet? <a href="#contact" class="book__link">Send a message instead</a>.
+        </p>
+      </div>
+      <!-- Acuity Scheduling embed, pointed at the branded scheduling URL.
+           embed.js recognises ".as.me" in its host allowlist, so auto-resize still works.
+           That script tag at the end of <body> must stay AFTER this element in the DOM,
+           because it scans for Acuity iframes once, synchronously, on execution. -->
+      <div class="book__panel">
+        <iframe
+          class="book__frame"
+          title="Book an appointment with Z Best Life Organized"
+          src="https://zbestlifebooking.as.me"
+          width="100%"
+          height="800"
+          frameBorder="0"
+          loading="lazy"
+          data-offset-top="80"></iframe>
+      </div>
     </div>
   </section>
 
@@ -225,10 +253,10 @@
     <div class="contact__inner">
       <div class="contact__info">
         <p class="contact__label">Get In Touch</p>
-        <h2 class="contact__heading">Let's Get Organized</h2>
+        <h2 class="contact__heading">Have a Question First?</h2>
         <p class="contact__body">
-          Ready to transform your space? Tell me a little about what you're working with
-          and I'll get back to you within 24 hours.
+          Tell me a little about what you're working with and I'll get back to you within
+          24 hours. Ready to book? <a href="#book" class="contact__link">Grab a consult time</a>.
         </p>
         <div class="contact__details">
           <p class="contact__detail">&#x1F4CD; Westfield, New Jersey</p>
@@ -268,8 +296,8 @@
           <textarea id="message" name="message" class="contact__input contact__textarea" rows="4" required></textarea>
           <span class="contact__error" id="messageError"></span>
         </div>
-        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
-        <p class="contact_form-error" id="contactFormError" role="alert"></p>
+        <button type="submit" class="btn btn--primary btn--full" id="contactSubmit">Send Message</button>
+        <p class="contact__form-error" id="contactFormError" role="alert"></p>
       </form>
       <div class="contact__success" id="contactSuccess" hidden>
         <p class="contact__success-text">Thank you! I'll be in touch soon. &hearts;</p>
@@ -326,6 +354,9 @@
     </div>
   </div>
 
+  <!-- Must load after the #book iframe: embed.js scans the DOM for Acuity iframes once,
+       synchronously, at execution time. -->
+  <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
   <script type="module" src="dist/main.js"></script>
 </body>
 </html>
